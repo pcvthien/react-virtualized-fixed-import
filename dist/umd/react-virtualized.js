@@ -2173,7 +2173,7 @@
         return win.setTimeout(callback, 1e3 / 60);
     }, cancel = win.cancelAnimationFrame || win.webkitCancelAnimationFrame || win.mozCancelAnimationFrame || win.oCancelAnimationFrame || win.msCancelAnimationFrame || function(id) {
         win.clearTimeout(id);
-    }, raf = request, caf = cancel, cancelAnimationTimeout = function(frame) {
+    }, raf = request.bind(win), caf = cancel.bind(win), cancelAnimationTimeout = function(frame) {
         return caf(frame.id);
     }, requestAnimationTimeout = function(callback, delay) {
         var start;

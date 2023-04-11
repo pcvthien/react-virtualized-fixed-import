@@ -19,5 +19,5 @@ var cancel = win.cancelAnimationFrame || win.webkitCancelAnimationFrame || win.m
   win.clearTimeout(id);
 };
 
-export var raf = request;
-export var caf = cancel;
+export var raf = request.bin(win);
+export var caf = cancel.bind(win);
